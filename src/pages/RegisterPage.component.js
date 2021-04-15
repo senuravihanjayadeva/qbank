@@ -14,13 +14,13 @@ export default function RegisterPageComponent() {
   };
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="warning" onClick={handleShow}>
         Register
       </Button>
       <div className="container">
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Register</Modal.Title>
+            <Modal.Title>REGISTER</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <RegisterComponent />

@@ -1,0 +1,15 @@
+:root {
+  --light-background-color: #f6f5ff;
+}
+
+.AdminHeroSection {
+  background-color: var(--light-background-color);
+  height: 350px;
+  clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 70%);
+}
+
+@media (max-width: 1000px) {
+  .AdminHeroSection {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+}
