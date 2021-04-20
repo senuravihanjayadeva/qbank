@@ -28,20 +28,60 @@ export const register = (data, OnSuccess, OnFailure) => (dispatch) => {
     });
 };
 
-export const login = (data, OnSuccess, OnFailure) => (dispatch) => {
-  console.log(data);
+export const loginstudent = (data, OnSuccess, OnFailure) => (dispatch) => {
   api
     .auth()
     .login(data)
     .then((response) => {
-      dispatch({
-        type: ACTION_TYPES.LOGIN_SUCCESS,
-        payload: response.data,
-      });
-      if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+      var loginAccess = response.data.roles[0].localeCompare("ROLE_USER");
+      if (loginAccess === 0) {
+        dispatch({
+          type: ACTION_TYPES.LOGIN_SUCCESS,
+          payload: response.data,
+        });
+        if (response.data.accessToken) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+        OnSuccess();
+      } else {
+        dispatch({
+          type: ACTION_TYPES.LOGIN_FAIL,
+          payload: null,
+        });
+        OnFailure();
       }
-      OnSuccess();
+    })
+    .catch((err) => {
+      dispatch({
+        type: ACTION_TYPES.LOGIN_FAIL,
+        payload: null,
+      });
+      OnFailure();
+    });
+};
+
+export const loginteacher = (data, OnSuccess, OnFailure) => (dispatch) => {
+  api
+    .auth()
+    .login(data)
+    .then((response) => {
+      var loginAccess = response.data.roles[0].localeCompare("ROLE_MODERATOR");
+      if (loginAccess === 0) {
+        dispatch({
+          type: ACTION_TYPES.LOGIN_SUCCESS,
+          payload: response.data,
+        });
+        if (response.data.accessToken) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+        }
+        OnSuccess();
+      } else {
+        dispatch({
+          type: ACTION_TYPES.LOGIN_FAIL,
+          payload: null,
+        });
+        OnFailure();
+      }
     })
     .catch((err) => {
       dispatch({

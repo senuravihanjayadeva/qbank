@@ -13,6 +13,9 @@ const LoginStudent = ({ ...props }) => {
 
   const handleRegistration = (e) => {
     e.preventDefault();
+    setloginStatus(true);
+    setloginStatusAlert("alert alert-warning");
+    setloginStatusMessage("Please Wait...");
 
     const loginStudentObject = {
       username,
@@ -22,13 +25,11 @@ const LoginStudent = ({ ...props }) => {
     props.loginstudent(
       loginStudentObject,
       () => {
-        setloginStatus(true);
         setloginStatusAlert("alert alert-success");
         setloginStatusMessage("Login successful");
-        window.location = "/profile";
+        window.location = "/student";
       },
       () => {
-        setloginStatus(true);
         setloginStatusAlert("alert alert-danger");
         setloginStatusMessage(
           "Username or password incorrect. Please try again."
@@ -86,7 +87,7 @@ const LoginStudent = ({ ...props }) => {
 };
 
 const mapActionToProps = {
-  loginstudent: actions.login,
+  loginstudent: actions.loginstudent,
 };
 
 export default connect(null, mapActionToProps)(LoginStudent);

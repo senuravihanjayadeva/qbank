@@ -1,18 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions/AuthActions";
 
-const LoginTeacher = () => {
+const LoginTeacher = ({ ...props }) => {
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+
+  //states for alerts
+  const [loginStatus, setloginStatus] = useState("");
+  const [loginStatusAlert, setloginStatusAlert] = useState("");
+  const [loginStatusMessage, setloginStatusMessage] = useState("");
+
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    setloginStatus(true);
+    setloginStatusAlert("alert alert-warning");
+    setloginStatusMessage("Please Wait...");
+
+    const loginTeacherObject = {
+      username,
+      password,
+    };
+
+    props.loginteacher(
+      loginTeacherObject,
+      () => {
+        setloginStatusAlert("alert alert-success");
+        setloginStatusMessage("Login successful");
+        window.location = "/teacher";
+      },
+      () => {
+        setloginStatusAlert("alert alert-danger");
+        setloginStatusMessage(
+          "Username or password incorrect. Please try again."
+        );
+      }
+    );
+  };
   return (
     <div>
       <div>
         <div>
           <div className="container">
-            <form>
+            <form onSubmit={handleRegistration}>
+              <div class="form-group formDiv">
+                {loginStatus ? (
+                  <div class={loginStatusAlert} role="alert">
+                    {loginStatusMessage}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
               <div class="form-group formDiv">
                 <label>Username</label>
                 <input
                   type="text"
                   class="form-control"
                   placeholder="Enter username"
+                  onChange={(e) => {
+                    setusername(e.target.value);
+                  }}
                 />
               </div>
               <div class="form-group formDiv">
@@ -21,6 +69,9 @@ const LoginTeacher = () => {
                   type="password"
                   class="form-control"
                   placeholder="Password"
+                  onChange={(e) => {
+                    setpassword(e.target.value);
+                  }}
                 />
               </div>
               <div class="form-group formDiv">
@@ -35,4 +86,13 @@ const LoginTeacher = () => {
     </div>
   );
 };
-export default LoginTeacher;
+
+const mapStateToProps = (state) => ({
+  user: state.authReducer.user,
+});
+
+const mapActionToProps = {
+  loginteacher: actions.loginteacher,
+};
+
+export default connect(mapStateToProps, mapActionToProps)(LoginTeacher);
