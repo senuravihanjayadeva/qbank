@@ -20,13 +20,15 @@ export const studentReducer = (state = initialState, action) => {
       return {
         ...state,
         studentList: state.studentList.map((x) =>
-          x.id == action.payload.id ? action.payload : x
+          x.id === action.payload.id ? action.payload : x
         ),
       };
     case ACTION_TYPES.DELETE:
       return {
         ...state,
-        studentList: state.studentList.filter((x) => x.id != action.payload.id),
+        studentList: state.studentList.filter(
+          (x) => x.id !== action.payload.id
+        ),
       };
     default:
       return state;

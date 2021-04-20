@@ -1,5 +1,4 @@
 import api from "./AuthAPI";
-import axios from "axios";
 
 export const ACTION_TYPES = {
   REGISTER_SUCCESS: "REGISTER_SUCCESS",
@@ -9,7 +8,7 @@ export const ACTION_TYPES = {
   LOGOUT: "LOGOUT",
 };
 
-export const register = (data, OnSuccess) => (dispatch) => {
+export const register = (data, OnSuccess, OnFailure) => (dispatch) => {
   api
     .auth()
     .register(data)
@@ -25,11 +24,11 @@ export const register = (data, OnSuccess) => (dispatch) => {
         type: ACTION_TYPES.REGISTER_FAIL,
         payload: null,
       });
-      console.log(err);
+      OnFailure();
     });
 };
 
-export const login = (data, OnSuccess) => (dispatch) => {
+export const login = (data, OnSuccess, OnFailure) => (dispatch) => {
   console.log(data);
   api
     .auth()
@@ -47,9 +46,9 @@ export const login = (data, OnSuccess) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: ACTION_TYPES.LOGIN_FAIL,
-        payload: null,
+        payload: err,
       });
-      console.log(err);
+      OnFailure();
     });
 };
 

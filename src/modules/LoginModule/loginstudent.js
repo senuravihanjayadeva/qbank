@@ -6,18 +6,35 @@ const LoginStudent = ({ ...props }) => {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
 
+  //states for alerts
+  const [loginStatus, setloginStatus] = useState("");
+  const [loginStatusAlert, setloginStatusAlert] = useState("");
+  const [loginStatusMessage, setloginStatusMessage] = useState("");
+
   const handleRegistration = (e) => {
     e.preventDefault();
 
-    const newStudent = {
+    const loginStudentObject = {
       username,
       password,
     };
 
-    console.log(newStudent);
-    props.loginstudent(newStudent, () => {
-      window.alert("Inserted Successfully");
-    });
+    props.loginstudent(
+      loginStudentObject,
+      () => {
+        setloginStatus(true);
+        setloginStatusAlert("alert alert-success");
+        setloginStatusMessage("Login successful");
+        window.location = "/profile";
+      },
+      () => {
+        setloginStatus(true);
+        setloginStatusAlert("alert alert-danger");
+        setloginStatusMessage(
+          "Username or password incorrect. Please try again."
+        );
+      }
+    );
   };
 
   return (
@@ -25,6 +42,15 @@ const LoginStudent = ({ ...props }) => {
       <div>
         <div className="container">
           <form onSubmit={handleRegistration}>
+            <div class="form-group formDiv">
+              {loginStatus ? (
+                <div class={loginStatusAlert} role="alert">
+                  {loginStatusMessage}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
             <div class="form-group formDiv">
               <label>Username</label>
               <input
@@ -59,12 +85,8 @@ const LoginStudent = ({ ...props }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  user: state.authReducer.user,
-});
-
 const mapActionToProps = {
   loginstudent: actions.login,
 };
 
-export default connect(mapStateToProps, mapActionToProps)(LoginStudent);
+export default connect(null, mapActionToProps)(LoginStudent);

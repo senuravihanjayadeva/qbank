@@ -6,8 +6,7 @@ export default {
   auth() {
     return {
       register: (newUser) => axios.post(baseUrl + "/api/auth/signup", newUser),
-      login: (user) =>
-        axios.post("https://qbanksenura.herokuapp.com/api/auth/signin", user),
+      login: (loginUser) => axios.post(baseUrl + "/api/auth/signin", loginUser),
     };
   },
 };
