@@ -27,7 +27,6 @@ function RegisterComponent({ ...props }) {
       role,
     };
 
-    console.log(newStudent);
     props.registerstudent(
       newStudent,
       () => {

@@ -1,0 +1,9 @@
+:root {
+  --light-card-option-color: rgb(0, 109, 143);
+  --light-card-text-color: aliceblue;
+}
+
+.TeacherOptionCards {
+  background-color: var(--light-card-option-color);
+  color: var(--light-card-text-color);
+}

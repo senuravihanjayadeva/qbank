@@ -1,9 +1,13 @@
 import React from "react";
-
+import TeacherHeroSection from "../modules/TeacherPageModule/TeacherHeroSection/TeacherHeroSection";
+import TeacherDashboard from "../modules/TeacherPageModule/TeacherDashboard/TeacherDashboard";
+import TeacherCreateQuestionPool from "../modules/TeacherPageModule/TeacherCreateQuestionPool/TeacherCreateQuestionPool";
 const TeacherPageComponent = () => {
   return (
     <div>
-      <p>Hello</p>
+      <TeacherHeroSection />
+      <TeacherDashboard />
+      <TeacherCreateQuestionPool />
     </div>
   );
 };
