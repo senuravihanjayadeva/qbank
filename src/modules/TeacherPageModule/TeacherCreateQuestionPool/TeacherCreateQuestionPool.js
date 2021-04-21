@@ -6,8 +6,17 @@ const TeacherCreateQuestionPool = ({ ...props }) => {
   const [questionPoolName, setquestionPoolName] = useState("");
   const [enrollmentKey, setenrollmentKey] = useState("");
 
+  //states for alerts
+  const [createStatus, setcreateStatus] = useState("");
+  const [createStatusAlert, setcreateStatusAlert] = useState("");
+  const [createStatusMessage, setcreateStatusMessage] = useState("");
+
   function onCreateQuestionPool(e) {
     e.preventDefault();
+
+    setcreateStatus(true);
+    setcreateStatusAlert("alert alert-warning");
+    setcreateStatusMessage("Please Wait...");
 
     const newQuestionPool = {
       user: {
@@ -17,22 +26,31 @@ const TeacherCreateQuestionPool = ({ ...props }) => {
       enrollmentKey,
     };
 
-    console.log(newQuestionPool);
-
     props.createquestionpool(
       newQuestionPool,
       () => {
-        alert("succeess");
+        setcreateStatusAlert("alert alert-success");
+        setcreateStatusMessage("Question Pool created successfully");
       },
       () => {
-        alert("fail");
+        setcreateStatusAlert("alert alert-danger");
+        setcreateStatusMessage("Something went wrong. Please try again.");
       }
     );
   }
 
   return (
     <div className="container mt-2 mb-2">
-      <form onSubmit={onCreateQuestionPool}>
+      <form id="myForm" onSubmit={onCreateQuestionPool}>
+        <div class="form-group formDiv">
+          {createStatus ? (
+            <div class={createStatusAlert} role="alert">
+              {createStatusMessage}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         <div className="form-group mt-2">
           <label>Question Pool Name</label>
           <input
@@ -57,7 +75,7 @@ const TeacherCreateQuestionPool = ({ ...props }) => {
         </div>
         <div className="form-group mt-2">
           <button type="submit" className="btn btn-primary">
-            Create
+            CREATE
           </button>
         </div>
       </form>

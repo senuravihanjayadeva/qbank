@@ -1,4 +1,4 @@
-import api from "./AuthAPI";
+import api from "../services/AuthAPI";
 
 export const ACTION_TYPES = {
   REGISTER_SUCCESS: "REGISTER_SUCCESS",

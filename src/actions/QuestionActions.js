@@ -1,11 +1,10 @@
-import api from "../services/QuestionPoolAPI";
+import api from "../services/QuestionAPI";
 
 export const ACTION_TYPES = {
   CREATE: "CREATE",
   UPDATE: "UPDATE",
   DELETE: "DELETE",
   FETCH_ALL: "FETCH_ALL",
-  FETCH_ALL_BY_TEACHER: "FETCH_ALL_BY_TEACHER",
 };
 
 export const fetchAll = () => (dispatch) => {
@@ -23,24 +22,9 @@ export const fetchAll = () => (dispatch) => {
     });
 };
 
-export const fetchAllByTeacher = (id) => (dispatch) => {
-  api
-    .questionpools()
-    .fetchAllByTeacher(id)
-    .then((response) => {
-      dispatch({
-        type: ACTION_TYPES.FETCH_ALL_BY_TEACHER,
-        payload: response.data.questionPools,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 export const create = (data, OnSuccess, OnFailure) => (dispatch) => {
   api
-    .questionpools()
+    .questions()
     .create(data)
     .then((response) => {
       dispatch({
@@ -49,24 +33,24 @@ export const create = (data, OnSuccess, OnFailure) => (dispatch) => {
       });
       OnSuccess();
     })
-    .catch((err) => {
+    .catch(() => {
       OnFailure();
     });
 };
 
-export const update = (data, OnSuccess, OnFailure) => (dispatch) => {
+export const update = (id, data, OnSuccess) => (dispatch) => {
   api
     .questionpools()
-    .update(data)
+    .update(id, data)
     .then(() => {
       dispatch({
         type: ACTION_TYPES.UPDATE,
-        payload: { ...data },
+        payload: { id, ...data },
       });
       OnSuccess();
     })
-    .catch(() => {
-      OnFailure();
+    .catch((err) => {
+      console.log(err);
     });
 };
 

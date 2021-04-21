@@ -1,4 +1,4 @@
-import api from "./StudentAPI";
+import api from "../services/StudentAPI";
 
 export const ACTION_TYPES = {
   CREATE: "CREATE",

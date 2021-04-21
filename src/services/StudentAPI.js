@@ -1,5 +1,5 @@
 import axios from "axios";
-import authHeader from "../services/authHeader";
+import authHeader from "./authHeader";
 
 const baseUrl = "https://qbanksenura.herokuapp.com";
 
@@ -8,13 +8,12 @@ const config = {
 };
 
 export default {
-  questionpools() {
+  students() {
     return {
       fetchAll: () => axios.get(baseUrl, config),
-      fetchAllByTeacher: () => axios.get(baseUrl, config),
       fetchById: (id) => axios.get(baseUrl + "/" + id, config),
-      create: (newQuestionPool) =>
-        axios.post(baseUrl + "/api/questionpools", newQuestionPool, config),
+      create: (newStudent) =>
+        axios.post(baseUrl + "/api/auth/signup", newStudent),
       update: (id, updateStudent) =>
         axios.put(baseUrl + "/" + id, updateStudent, config),
       delete: (id) => axios.delete(baseUrl + "/" + id, config),
