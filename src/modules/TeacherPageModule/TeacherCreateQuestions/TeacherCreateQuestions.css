@@ -1,0 +1,8 @@
+:root {
+  --light-background-color-card-div: #cacaca;
+}
+
+.divCreateQuestion {
+  background-color: var(--light-background-color-card-div);
+  padding: 5px;
+}

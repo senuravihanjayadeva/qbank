@@ -1,7 +1,8 @@
-import api from "../services/QuestionAPI";
+import api from "../services/OptionAPI";
+import { fetchById } from "./QuestionPoolActions";
 
 export const ACTION_TYPES = {
-  CREATE_QUESTION: "CREATE_QUESTION",
+  CREATE_OPTION: "CREATE_OPTION",
   UPDATE: "UPDATE",
   DELETE: "DELETE",
   FETCH_ALL: "FETCH_ALL",
@@ -9,7 +10,7 @@ export const ACTION_TYPES = {
 
 export const fetchAll = () => (dispatch) => {
   api
-    .questionpools()
+    .options()
     .fetchAll()
     .then((response) => {
       dispatch({
@@ -22,13 +23,13 @@ export const fetchAll = () => (dispatch) => {
     });
 };
 
-export const create = (data, OnSuccess, OnFailure) => (dispatch) => {
+export const createoption = (id, data, OnSuccess, OnFailure) => (dispatch) => {
   api
-    .questions()
+    .options()
     .create(data)
     .then((response) => {
       dispatch({
-        type: ACTION_TYPES.CREATE_QUESTION,
+        type: ACTION_TYPES.CREATE_OPTION,
         payload: response.data,
       });
       OnSuccess();
@@ -40,7 +41,7 @@ export const create = (data, OnSuccess, OnFailure) => (dispatch) => {
 
 export const update = (id, data, OnSuccess) => (dispatch) => {
   api
-    .questionpools()
+    .options()
     .update(id, data)
     .then(() => {
       dispatch({
@@ -56,7 +57,7 @@ export const update = (id, data, OnSuccess) => (dispatch) => {
 
 export const Delete = (id, OnSuccess) => (dispatch) => {
   api
-    .questionpools()
+    .options()
     .delete(id)
     .then(() => {
       dispatch({

@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import * as actions from "../../../actions/QuestionActions";
-import "./TeacherCreateQuestions.css";
+import * as actions from "../../../actions/OptionActions";
 
-const TeacherCreateQuestions = ({ ...props }) => {
-  const [questionText, setquestionText] = useState("");
+const TeacherCreateOptions = ({ ...props }) => {
+  const [optionText, setoptionText] = useState("");
+  let { id } = useParams();
 
   //states for alerts
   const [createStatus, setcreateStatus] = useState("");
   const [createStatusAlert, setcreateStatusAlert] = useState("");
   const [createStatusMessage, setcreateStatusMessage] = useState("");
 
-  let { id } = useParams();
-
-  function onCreateQuestion(e) {
+  function onCreateOption(e) {
     e.preventDefault();
     setcreateStatus(true);
     setcreateStatusAlert("alert alert-warning");
     setcreateStatusMessage("Please Wait...");
 
-    const newQuestion = {
-      questionPool: {
-        id: props.poolId,
+    const newOption = {
+      question: {
+        id: props.dataQuestionID,
       },
-      questionText,
+      optionText,
     };
 
-    props.createquestion(
-      newQuestion,
+    props.createoption(
+      id,
+      newOption,
       () => {
         setcreateStatusAlert("alert alert-success");
-        setcreateStatusMessage("Question created successfully");
+        setcreateStatusMessage("Option created successfully");
         window.location = `/qpool/${id}`;
       },
       () => {
@@ -40,10 +39,11 @@ const TeacherCreateQuestions = ({ ...props }) => {
       }
     );
   }
+
   return (
     <div>
-      <div className="container mt-2 mb-2 divCreateQuestion">
-        <form onSubmit={onCreateQuestion}>
+      <div className="container mt-2 mb-2">
+        <form onSubmit={onCreateOption}>
           <div class="form-group formDiv">
             {createStatus ? (
               <div class={createStatusAlert} role="alert">
@@ -54,12 +54,13 @@ const TeacherCreateQuestions = ({ ...props }) => {
             )}
           </div>
           <div className="form-group mt-2">
+            <label>Option</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Add Question"
+              placeholder="Enter Option"
               onChange={(e) => {
-                setquestionText(e.target.value);
+                setoptionText(e.target.value);
               }}
             />
           </div>
@@ -75,7 +76,7 @@ const TeacherCreateQuestions = ({ ...props }) => {
 };
 
 const mapActionToProps = {
-  createquestion: actions.create,
+  createoption: actions.createoption,
 };
 
-export default connect(null, mapActionToProps)(TeacherCreateQuestions);
+export default connect(null, mapActionToProps)(TeacherCreateOptions);

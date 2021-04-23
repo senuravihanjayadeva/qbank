@@ -19,3 +19,7 @@ code {
 .colCards {
   width: 30%;
 }
+
+.btnRound {
+  border-radius: 50%;
+}

@@ -13,7 +13,8 @@ export default {
       fetchAll: () => axios.get(baseUrl + "/api/questionpools", config),
       fetchAllByTeacher: (id) =>
         axios.get(baseUrl + "/api/moderators/" + id, config),
-      fetchById: (id) => axios.get(baseUrl + "/" + id, config),
+      fetchById: (id) =>
+        axios.get(baseUrl + "/api/questionpools/" + id, config),
       create: (newQuestionPool) =>
         axios.post(baseUrl + "/api/questionpools", newQuestionPool, config),
       update: (updatedQuestionPool) =>

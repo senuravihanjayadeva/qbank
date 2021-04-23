@@ -8,6 +8,11 @@ const initialState = {
 
 export const questionPoolReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ACTION_TYPES.FETCH_BY_ID:
+      return {
+        ...state,
+        currentQuestionPool: action.payload,
+      };
     case ACTION_TYPES.FETCH_ALL:
       return {
         ...state,

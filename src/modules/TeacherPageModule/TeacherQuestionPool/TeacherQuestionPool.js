@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./TeacherQuestionPool.css";
 import { connect } from "react-redux";
 import * as actions from "../../../actions/QuestionPoolActions";
+import { Link } from "react-router-dom";
 
 import TeacherEditQuestionPool from "../TeacherEditQuestionPool/TeacherEditQuestionPool";
 
@@ -39,7 +40,11 @@ const TeacherQuestionPool = ({ ...props }) => {
                       <div className="row rowCards">
                         <div className="col-lg-4 col-md-4 col-sm-4 colCards">
                           <button className="btn btn-success">
-                            <AddCircleOutlinedIcon />
+                            <Link
+                              to={`/qpool/${questionPool.questionPoolName}/${questionPool.id}`}
+                            >
+                              <AddCircleOutlinedIcon />
+                            </Link>
                           </button>
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 colCards">

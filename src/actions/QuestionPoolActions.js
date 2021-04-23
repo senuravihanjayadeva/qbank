@@ -4,8 +4,25 @@ export const ACTION_TYPES = {
   CREATE: "CREATE",
   UPDATE: "UPDATE",
   DELETE: "DELETE",
+  FETCH_BY_ID: "FETCH_BY_ID",
   FETCH_ALL: "FETCH_ALL",
   FETCH_ALL_BY_TEACHER: "FETCH_ALL_BY_TEACHER",
+};
+
+export const fetchById = (id) => (dispatch) => {
+  api
+    .questionpools()
+    .fetchById(id)
+    .then((response) => {
+      console.log(response.data);
+      dispatch({
+        type: ACTION_TYPES.FETCH_BY_ID,
+        payload: response.data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export const fetchAll = () => (dispatch) => {
@@ -49,7 +66,7 @@ export const create = (data, OnSuccess, OnFailure) => (dispatch) => {
       });
       OnSuccess();
     })
-    .catch((err) => {
+    .catch(() => {
       OnFailure();
     });
 };

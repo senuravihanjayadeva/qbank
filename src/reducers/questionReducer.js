@@ -12,7 +12,7 @@ export const questionReducer = (state = initialState, action) => {
         ...state,
         questionList: [...action.payload],
       };
-    case ACTION_TYPES.CREATE:
+    case ACTION_TYPES.CREATE_QUESTION:
       return {
         ...state,
         questionList: [...state.questionList, action.payload],
