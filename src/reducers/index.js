@@ -5,6 +5,7 @@ import { questionPoolReducer } from "./questionPoolReducer";
 import { questionReducer } from "./questionReducer";
 import { optionReducer } from "./optionReducer";
 import { answerReducer } from "./answerReducer";
+import { teacherReducer } from "./teacherReducer";
 
 export const reducers = combineReducers({
   studentReducer,
@@ -13,4 +14,5 @@ export const reducers = combineReducers({
   questionReducer,
   optionReducer,
   answerReducer,
+  teacherReducer,
 });
