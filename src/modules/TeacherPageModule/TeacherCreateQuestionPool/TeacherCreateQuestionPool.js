@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../actions/QuestionPoolActions";
+import "./TeacherCreateQuestionPool.css";
 
 const TeacherCreateQuestionPool = ({ ...props }) => {
   const [questionPoolName, setquestionPoolName] = useState("");
@@ -31,16 +32,25 @@ const TeacherCreateQuestionPool = ({ ...props }) => {
       () => {
         setcreateStatusAlert("alert alert-success");
         setcreateStatusMessage("Question Pool created successfully");
+        clearInputFieldsFunction();
+        setTimeout(() => setcreateStatus(false), 3000);
       },
       () => {
         setcreateStatusAlert("alert alert-danger");
         setcreateStatusMessage("Something went wrong. Please try again.");
+        clearInputFieldsFunction();
+        setTimeout(() => setcreateStatus(false), 3000);
       }
     );
   }
 
+  function clearInputFieldsFunction() {
+    setquestionPoolName("");
+    setenrollmentKey("");
+  }
+
   return (
-    <div className="container mt-2 mb-2">
+    <div className="container mt-2 mb-2 cardCreateQuestionPool">
       <form id="myForm" onSubmit={onCreateQuestionPool}>
         <div class="form-group formDiv">
           {createStatus ? (
@@ -56,6 +66,7 @@ const TeacherCreateQuestionPool = ({ ...props }) => {
           <input
             type="text"
             className="form-control"
+            value={questionPoolName}
             placeholder="Enter Question Pool Name"
             onChange={(e) => {
               setquestionPoolName(e.target.value);
@@ -67,6 +78,7 @@ const TeacherCreateQuestionPool = ({ ...props }) => {
           <input
             type="text"
             className="form-control"
+            value={enrollmentKey}
             placeholder="Enter Enrollment Key"
             onChange={(e) => {
               setenrollmentKey(e.target.value);

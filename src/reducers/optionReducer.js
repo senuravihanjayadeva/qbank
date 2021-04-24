@@ -1,9 +1,9 @@
 import { ACTION_TYPES } from "../actions/OptionActions";
-import * as actionsQuestions from "../actions/QuestionActions";
 
 const initialState = {
   optionList: [],
   newOption: "",
+  deletedOption: "",
 };
 
 export const optionReducer = (state = initialState, action) => {
@@ -26,10 +26,11 @@ export const optionReducer = (state = initialState, action) => {
           x.id === action.payload.id ? action.payload : x
         ),
       };
-    case ACTION_TYPES.DELETE:
+    case ACTION_TYPES.DELETE_OPTION:
       return {
         ...state,
         optionList: state.optionList.filter((x) => x.id !== action.payload.id),
+        deletedOption: action.payload.id,
       };
     default:
       return state;

@@ -4,6 +4,7 @@ import HomePageComponent from "../pages/HomePage.component";
 import AdminPageComponent from "../pages/AdminPage.component";
 import TeacherPageComponent from "../pages/TeacherPage.component";
 import TeacherQuestions from "../modules/TeacherPageModule/TeacherQuestions/TeacherQuestions";
+import Footer from "../components/common/Footer/Footer";
 
 export default function RoutesComponent() {
   return (
@@ -19,6 +20,7 @@ export default function RoutesComponent() {
           component={TeacherQuestions}
         />
       </Switch>
+      <Footer />
     </Router>
   );
 }

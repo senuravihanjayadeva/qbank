@@ -1,8 +1,3 @@
-:root {
-  --light-card-questionpool-card-color: rgb(85, 85, 85);
-  --light-card-text-color: aliceblue;
-}
-
 .TeacherQuestionPools {
   background-color: var(--light-card-questionpool-card-color);
   color: var(--light-card-text-color);

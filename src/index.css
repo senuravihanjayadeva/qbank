@@ -1,3 +1,12 @@
+:root {
+  --light-background-color-btn-icon: #ffffff;
+  --light-card-questionpool-card-color: rgb(85, 85, 85);
+  --light-card-text-color: aliceblue;
+  --light-card-question-card-color: rgb(228, 228, 228);
+  --light-background-color-card-div: rgb(228, 228, 228);
+  --light-background-none-color-btn-icon: rgb(0, 114, 180);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -22,4 +31,20 @@ code {
 
 .btnRound {
   border-radius: 50%;
+}
+
+.btnIcons {
+  color: var(--light-background-color-btn-icon);
+}
+
+.btnBackgroundNoneIcons {
+  color: var(--light-background-none-color-btn-icon);
+}
+
+.btnBackgroundNone {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
 }

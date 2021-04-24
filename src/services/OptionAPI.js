@@ -15,8 +15,8 @@ export default {
       create: (newOption) =>
         axios.post(baseUrl + "/api/options", newOption, config),
       update: (id, updatedOption) =>
-        axios.put(baseUrl + "/api/options" + "/" + id, updatedOption, config),
-      delete: (id) => axios.delete(baseUrl + "/api/options" + "/" + id, config),
+        axios.put(baseUrl + "/api/options/" + id, updatedOption, config),
+      delete: (id) => axios.delete(baseUrl + "/api/options/" + id, config),
     };
   },
 };

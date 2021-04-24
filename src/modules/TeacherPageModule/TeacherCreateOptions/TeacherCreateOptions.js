@@ -31,11 +31,14 @@ const TeacherCreateOptions = ({ ...props }) => {
       () => {
         setcreateStatusAlert("alert alert-success");
         setcreateStatusMessage("Option created successfully");
-        window.location = `/qpool/${id}`;
+        setoptionText("");
+        setTimeout(() => setcreateStatus(false), 2000);
       },
       () => {
         setcreateStatusAlert("alert alert-danger");
         setcreateStatusMessage("Something went wrong. Please try again.");
+        setoptionText("");
+        setTimeout(() => setcreateStatus(false), 2000);
       }
     );
   }
@@ -54,11 +57,11 @@ const TeacherCreateOptions = ({ ...props }) => {
             )}
           </div>
           <div className="form-group mt-2">
-            <label>Option</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter Option"
+              value={optionText}
+              placeholder="Enter an Option"
               onChange={(e) => {
                 setoptionText(e.target.value);
               }}

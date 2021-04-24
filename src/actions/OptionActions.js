@@ -1,10 +1,9 @@
 import api from "../services/OptionAPI";
-import { fetchById } from "./QuestionPoolActions";
 
 export const ACTION_TYPES = {
   CREATE_OPTION: "CREATE_OPTION",
   UPDATE: "UPDATE",
-  DELETE: "DELETE",
+  DELETE_OPTION: "DELETE_OPTION",
   FETCH_ALL: "FETCH_ALL",
 };
 
@@ -55,18 +54,18 @@ export const update = (id, data, OnSuccess) => (dispatch) => {
     });
 };
 
-export const Delete = (id, OnSuccess) => (dispatch) => {
+export const DeleteOption = (id, OnSuccess, OnFailure) => (dispatch) => {
   api
     .options()
     .delete(id)
     .then(() => {
       dispatch({
-        type: ACTION_TYPES.DELETE,
+        type: ACTION_TYPES.DELETE_OPTION,
         payload: { id },
       });
       OnSuccess();
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      OnFailure();
     });
 };

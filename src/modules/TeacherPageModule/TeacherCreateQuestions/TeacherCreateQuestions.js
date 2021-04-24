@@ -12,10 +12,9 @@ const TeacherCreateQuestions = ({ ...props }) => {
   const [createStatusAlert, setcreateStatusAlert] = useState("");
   const [createStatusMessage, setcreateStatusMessage] = useState("");
 
-  let { id } = useParams();
-
   function onCreateQuestion(e) {
     e.preventDefault();
+
     setcreateStatus(true);
     setcreateStatusAlert("alert alert-warning");
     setcreateStatusMessage("Please Wait...");
@@ -32,17 +31,18 @@ const TeacherCreateQuestions = ({ ...props }) => {
       () => {
         setcreateStatusAlert("alert alert-success");
         setcreateStatusMessage("Question created successfully");
-        window.location = `/qpool/${id}`;
+        setTimeout(() => setcreateStatus(false), 3000);
       },
       () => {
         setcreateStatusAlert("alert alert-danger");
         setcreateStatusMessage("Something went wrong. Please try again.");
+        setTimeout(() => setcreateStatus(false), 3000);
       }
     );
   }
   return (
     <div>
-      <div className="container mt-2 mb-2 divCreateQuestion">
+      <div className="container mt-2 mb-2 p-2 divCreateQuestion">
         <form onSubmit={onCreateQuestion}>
           <div class="form-group formDiv">
             {createStatus ? (

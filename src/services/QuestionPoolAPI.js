@@ -19,7 +19,8 @@ export default {
         axios.post(baseUrl + "/api/questionpools", newQuestionPool, config),
       update: (updatedQuestionPool) =>
         axios.put(baseUrl + "/api/questionpools", updatedQuestionPool, config),
-      delete: (id) => axios.delete(baseUrl + "/" + id, config),
+      delete: (id) =>
+        axios.delete(baseUrl + "/api/questionpools/" + id, config),
     };
   },
 };

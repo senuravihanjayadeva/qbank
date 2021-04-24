@@ -16,10 +16,9 @@ export default {
         axios.get(baseUrl + "/api/questions" + "/" + id, config),
       create: (newQuestion) =>
         axios.post(baseUrl + "/api/questions", newQuestion, config),
-      update: (id, updateStudent) =>
-        axios.put(baseUrl + "/api/questions" + "/" + id, updateStudent, config),
-      delete: (id) =>
-        axios.delete(baseUrl + "/api/questions" + "/" + id, config),
+      update: (updateQuestion) =>
+        axios.put(baseUrl + "/api/questions", updateQuestion, config),
+      delete: (id) => axios.delete(baseUrl + "/api/questions/" + id, config),
     };
   },
 };

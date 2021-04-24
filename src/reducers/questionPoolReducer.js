@@ -43,10 +43,13 @@ export const questionPoolReducer = (state = initialState, action) => {
           x.id === action.payload.id ? action.payload : x
         ),
       };
-    case ACTION_TYPES.DELETE:
+    case ACTION_TYPES.DELETE_QUESTIONPOOL:
       return {
         ...state,
         questionPoolList: state.questionPoolList.filter(
+          (x) => x.id !== action.payload.id
+        ),
+        teacherQuestionPoolList: state.teacherQuestionPoolList.filter(
           (x) => x.id !== action.payload.id
         ),
       };

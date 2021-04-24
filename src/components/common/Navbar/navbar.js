@@ -26,8 +26,8 @@ const Navbar = () => {
             <a class="nav-item nav-link" href="/">
               MCQS
             </a>
-            <a class="nav-item nav-link" href="/">
-              Pricing
+            <a class="nav-item nav-link" href="/teacher">
+              Profile
             </a>
           </div>
         </div>

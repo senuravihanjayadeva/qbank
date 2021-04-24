@@ -3,7 +3,7 @@ import api from "../services/QuestionPoolAPI";
 export const ACTION_TYPES = {
   CREATE: "CREATE",
   UPDATE: "UPDATE",
-  DELETE: "DELETE",
+  DELETE_QUESTIONPOOL: "DELETE_QUESTIONPOOL",
   FETCH_BY_ID: "FETCH_BY_ID",
   FETCH_ALL: "FETCH_ALL",
   FETCH_ALL_BY_TEACHER: "FETCH_ALL_BY_TEACHER",
@@ -87,18 +87,18 @@ export const update = (data, OnSuccess, OnFailure) => (dispatch) => {
     });
 };
 
-export const Delete = (id, OnSuccess) => (dispatch) => {
+export const DeleteQuestionPool = (id, OnSuccess, OnFailure) => (dispatch) => {
   api
     .questionpools()
     .delete(id)
     .then(() => {
       dispatch({
-        type: ACTION_TYPES.DELETE,
+        type: ACTION_TYPES.DELETE_QUESTIONPOOL,
         payload: { id },
       });
       OnSuccess();
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      OnFailure();
     });
 };

@@ -2,8 +2,8 @@ import api from "../services/QuestionAPI";
 
 export const ACTION_TYPES = {
   CREATE_QUESTION: "CREATE_QUESTION",
-  UPDATE: "UPDATE",
-  DELETE: "DELETE",
+  UPDATE_QUESTION: "UPDATE_QUESTION",
+  DELETE_QUESTION: "DELETE_QUESTION",
   FETCH_ALL: "FETCH_ALL",
 };
 
@@ -38,34 +38,34 @@ export const create = (data, OnSuccess, OnFailure) => (dispatch) => {
     });
 };
 
-export const update = (id, data, OnSuccess) => (dispatch) => {
+export const updateQuestion = (data, OnSuccess, OnFailure) => (dispatch) => {
   api
-    .questionpools()
-    .update(id, data)
+    .questions()
+    .update(data)
     .then(() => {
       dispatch({
-        type: ACTION_TYPES.UPDATE,
-        payload: { id, ...data },
+        type: ACTION_TYPES.UPDATE_QUESTION,
+        payload: { ...data },
       });
       OnSuccess();
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      OnFailure();
     });
 };
 
-export const Delete = (id, OnSuccess) => (dispatch) => {
+export const DeleteQuestion = (id, OnSuccess, OnFailure) => (dispatch) => {
   api
-    .questionpools()
+    .questions()
     .delete(id)
     .then(() => {
       dispatch({
-        type: ACTION_TYPES.DELETE,
+        type: ACTION_TYPES.DELETE_QUESTION,
         payload: { id },
       });
       OnSuccess();
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      OnFailure();
     });
 };

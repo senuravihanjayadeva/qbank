@@ -54,14 +54,14 @@ const TeacherOptionSection = () => {
         </div>
       </div>
       {/* Collapse Section */}
-      <div className="container">
+      <div className="container mt-2">
         <div class="row">
           <div class="col-lg-12">
             <div
-              class="collapse multi-collapse"
+              class="collapse multi-collapse "
               id="multiCollapseCreateQuestionPool"
             >
-              <div class="card card-body">
+              <div class="card card-body cardCreateQuestionPool">
                 <TeacherCreateQuestionPool />
               </div>
             </div>

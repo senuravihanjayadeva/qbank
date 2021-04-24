@@ -1,0 +1,6 @@
+.cardDivQuestions {
+  padding: 20px 20px;
+  margin: 10px 2px;
+  background-color: var(--light-card-question-card-color);
+  border-radius: 10px;
+}
