@@ -6,6 +6,8 @@ import { questionReducer } from "./questionReducer";
 import { optionReducer } from "./optionReducer";
 import { answerReducer } from "./answerReducer";
 import { teacherReducer } from "./teacherReducer";
+import { checkAnswerReducer } from "./checkAnswerReducer";
+import { scoreboardReducer } from "./scoreboardReducer";
 
 export const reducers = combineReducers({
   studentReducer,
@@ -15,4 +17,6 @@ export const reducers = combineReducers({
   optionReducer,
   answerReducer,
   teacherReducer,
+  checkAnswerReducer,
+  scoreboardReducer,
 });

@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./authHeader";
 
-const baseUrl = "https://qbanksenura.herokuapp.com";
+const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
 const config = {
   headers: authHeader(),

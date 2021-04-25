@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
 import * as actions from "../../../actions/QuestionActions";
 import "./TeacherCreateQuestions.css";
 
@@ -29,11 +28,13 @@ const TeacherCreateQuestions = ({ ...props }) => {
     props.createquestion(
       newQuestion,
       () => {
+        setquestionText("");
         setcreateStatusAlert("alert alert-success");
         setcreateStatusMessage("Question created successfully");
         setTimeout(() => setcreateStatus(false), 3000);
       },
       () => {
+        setquestionText("");
         setcreateStatusAlert("alert alert-danger");
         setcreateStatusMessage("Something went wrong. Please try again.");
         setTimeout(() => setcreateStatus(false), 3000);
@@ -58,6 +59,7 @@ const TeacherCreateQuestions = ({ ...props }) => {
               type="text"
               className="form-control"
               placeholder="Add Question"
+              value={questionText}
               onChange={(e) => {
                 setquestionText(e.target.value);
               }}
