@@ -5,10 +5,6 @@ import * as answeractions from "../../../actions/CheckAnswerActions";
 class StudentScoreBoard extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      totalMarks: this.props.NoOfQuestions * 10,
-    };
   }
   componentDidMount() {
     this.props.fetchAnsweredScoreRecords(
@@ -25,8 +21,7 @@ class StudentScoreBoard extends Component {
           <div className="row mt-5">
             <div className="col-md-12">
               <div class="alert alert-primary" role="alert">
-                Score :- {this.props.scoreBoard.score} out of{" "}
-                {this.state.totalMarks}
+                Score :- {this.props.scoreBoard.score} Marks
               </div>
               <h6></h6>
             </div>
@@ -41,6 +36,7 @@ const mapStateToProps = (state) => ({
   user: state.authReducer.user,
   userQuestionPoolScoredBoard:
     state.checkAnswerReducer.userQuestionPoolScoredBoard,
+  questionPool: state.questionPoolReducer.currentQuestionPool,
 });
 
 const mapActionToProps = {

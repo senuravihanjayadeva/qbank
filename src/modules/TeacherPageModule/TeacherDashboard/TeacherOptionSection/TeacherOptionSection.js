@@ -10,7 +10,7 @@ const TeacherOptionSection = () => {
           <div className="col-lg-4 p-2 mt-2">
             <div class="card TeacherOptionCards">
               <div class="card-body">
-                <h5 class="card-title">Question Pool</h5>
+                <h5 class="card-title">Create a Quiz</h5>
                 <p class="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -22,7 +22,7 @@ const TeacherOptionSection = () => {
                   aria-expanded="false"
                   aria-controls="multiCollapseCreateQuestionPool"
                 >
-                  Create New Pool
+                  Create
                 </button>
               </div>
             </div>
@@ -30,24 +30,24 @@ const TeacherOptionSection = () => {
           <div className="col-lg-4 p-2 mt-2">
             <div class="card TeacherOptionCards">
               <div class="card-body">
-                <h5 class="card-title">Question Pool</h5>
+                <h5 class="card-title">Students Score Board</h5>
                 <p class="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <button className="btn btn-warning">Create New Pool</button>
+                <button className="btn btn-warning">View</button>
               </div>
             </div>
           </div>
           <div className="col-lg-4 p-2 mt-2">
             <div class="card TeacherOptionCards">
               <div class="card-body">
-                <h5 class="card-title">Question Pool</h5>
+                <h5 class="card-title">Edit Profile</h5>
                 <p class="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <button className="btn btn-warning">Create New Pool</button>
+                <button className="btn btn-warning">Edit</button>
               </div>
             </div>
           </div>

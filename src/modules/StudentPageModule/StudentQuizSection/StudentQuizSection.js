@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import * as actions from "../../../actions/QuestionPoolActions";
 import * as answeractions from "../../../actions/CheckAnswerActions";
 import * as scoreboardactions from "../../../actions/ScoreBoardActions";
-import StudentHeroSection from "../StudentHeroSection/StudentHeroSection";
 import StudentQuizOptions from "./StudentQuizOptions";
 import StudentScoreBoard from "./StudentScoreBoard";
+import StudentQuizHeroSection from "../StudentHeroSection/StudentQuizHeroSection";
 
 class StudentQuizSection extends Component {
   constructor(props) {
@@ -75,15 +75,21 @@ class StudentQuizSection extends Component {
       this.props.user.id,
       this.state.AttemptQuizObjID,
       () => {
+        localStorage.removeItem("AttemptQuizObjID");
+        localStorage.removeItem("AttemptQuizObjisAttempting");
+        localStorage.removeItem("AttemptQuizObjName");
         this.setState({
           finishStatus: true,
           finishStatusAlert: "alert alert-success",
           finishStatusMessage: "",
         });
-        alert("success");
       },
       () => {
-        alert("unsuccess");
+        this.setState({
+          finishStatus: true,
+          finishStatusAlert: "alert alert-danger",
+          finishStatusMessage: "Something went wrong",
+        });
       }
     );
   }
@@ -91,8 +97,17 @@ class StudentQuizSection extends Component {
   render() {
     return (
       <div>
-        <StudentHeroSection />
+        <StudentQuizHeroSection />
+
         <div className="container">
+          <div>
+            <h2>
+              {this.props.questionPool
+                ? this.props.questionPool.questionPoolName
+                : ""}
+            </h2>
+            <hr />
+          </div>
           <div>
             {this.props.questionPool !== ""
               ? this.props.questionPool.questions &&
@@ -166,7 +181,6 @@ class StudentQuizSection extends Component {
                 <StudentScoreBoard
                   quizID={this.state.AttemptQuizObjID}
                   scoreBoard={this.props.currentUserScoreBoard}
-                  NoOfQuestions={this.props.questionPool.questions.length}
                 />
               </div>
             ) : (

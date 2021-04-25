@@ -92,7 +92,7 @@ export const loginteacher = (data, OnSuccess, OnFailure) => (dispatch) => {
     });
 };
 
-export const logout = (dispatch) => {
+export const logout = () => (dispatch) => {
   localStorage.removeItem("user");
   dispatch({
     type: ACTION_TYPES.LOGOUT,

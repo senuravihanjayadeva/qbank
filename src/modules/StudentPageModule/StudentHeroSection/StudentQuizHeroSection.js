@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./StudentHeroSection.css";
-import WelcomeImage from "../../../assets/images/StudentPage/welcome.svg";
+import QuizImage from "../../../assets/images/StudentPage/quiz.svg";
 import Navbar from "../../../components/common/Navbar/navbar";
 
-class StudentHeroSection extends Component {
+class StudentQuizHeroSection extends Component {
   render() {
     return (
       <div>
@@ -15,11 +15,14 @@ class StudentHeroSection extends Component {
               <img
                 className="img-fluid header-img"
                 alt="userwelcomeimg"
-                src={WelcomeImage}
+                src={QuizImage}
               />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 p-5">
               <h3>Hello {this.props.user ? this.props.user.username : ""}</h3>
+              <h4>
+                “Nothing is impossible. The word itself says ‘I’m Possible’”
+              </h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -40,4 +43,4 @@ const mapStateToProps = (state) => ({
   user: state.authReducer.user,
 });
 
-export default connect(mapStateToProps, null)(StudentHeroSection);
+export default connect(mapStateToProps, null)(StudentQuizHeroSection);
