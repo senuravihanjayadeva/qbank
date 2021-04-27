@@ -37,7 +37,9 @@ function RegisterComponent({ ...props }) {
       () => {
         setregisterStatus(true);
         setregisterStatusAlert("alert alert-danger");
-        setregisterStatusMessage("Something went wrong. Please try again.");
+        setregisterStatusMessage(
+          "Something went wrong. Please try again with different username"
+        );
       }
     );
   }

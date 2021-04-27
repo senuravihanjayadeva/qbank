@@ -58,8 +58,7 @@ class StudentQuizSection extends Component {
 
     if (
       this.props.checkAnswer !== nextProps.checkAnswer ||
-      this.props.isFinished !== nextProps.isFinished ||
-      this.props.currentUserScoreBoard !== nextProps.currentUserScoreBoard
+      this.props.isFinished !== nextProps.isFinished
     ) {
       this.props.getCurrentUserScoreBoard(
         this.props.user.id,

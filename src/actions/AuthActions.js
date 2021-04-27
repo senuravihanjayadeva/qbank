@@ -19,7 +19,7 @@ export const register = (data, OnSuccess, OnFailure) => (dispatch) => {
       });
       OnSuccess();
     })
-    .catch((err) => {
+    .catch(() => {
       dispatch({
         type: ACTION_TYPES.REGISTER_FAIL,
         payload: null,

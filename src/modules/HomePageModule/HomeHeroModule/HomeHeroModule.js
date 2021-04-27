@@ -11,12 +11,12 @@ export class HomeHeroModule extends Component {
     return (
       <div>
         {" "}
-        <div className="mb-5">
-          <div className="overlay">
-            <div className="hero-section-bg" />
+        <div>
+          <div>
+            <div className="hero-section-bg-home" />
             <Navbar />
             <div className="row">
-              <div className="col-lg-6 col-md-6 col-sm-12 mt-5 mb-5 p-5">
+              <div className="col-lg-6 col-md-6 col-sm-12 mt-5 p-5">
                 <h1 className="mb-5">QUIZ MASTER</h1>
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
@@ -29,17 +29,23 @@ export class HomeHeroModule extends Component {
                 {this.props.user ? (
                   ""
                 ) : (
-                  <div className="row">
-                    <div className="col-lg-2 col-sm-6 mt-2 mb-2">
+                  <div className="row" style={{ width: "100%" }}>
+                    <div
+                      className="col-lg-2 col-sm-6 mt-2 mb-2"
+                      style={{ width: "25%" }}
+                    >
                       <LoginPage />
                     </div>
-                    <div className="col-lg-2 col-sm-6 mt-2 mb-2">
+                    <div
+                      className="col-lg-2 col-sm-6 mt-2 mb-2"
+                      style={{ width: "25%" }}
+                    >
                       <RegisterPageComponent />
                     </div>
                   </div>
                 )}
               </div>
-              <div className="col-lg-6 col-md-6 col-sm-12 mt-5 mb-5 text-center">
+              <div className="col-lg-6 col-md-6 col-sm-12 mt-5 text-center">
                 <img
                   src={ExamLogo}
                   className="img-fluid header-img d-none d-md-block"

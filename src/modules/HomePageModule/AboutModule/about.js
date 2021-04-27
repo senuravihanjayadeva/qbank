@@ -5,8 +5,8 @@ import "./about.css";
 const About = () => {
   return (
     <div className="AboutSection">
-      <div className="container mt-5">
-        <div className="row mt-5">
+      <div className="container">
+        <div className="row">
           <div className="col-lg-6">
             <img
               src={OnlineTestImg}
@@ -14,7 +14,7 @@ const About = () => {
               alt="onlinetestimg"
             />
           </div>
-          <div className="col-lg-6">
+          <div className="col-lg-6 p-5">
             <h1 className="mb-5">QUIZ MASTER</h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting

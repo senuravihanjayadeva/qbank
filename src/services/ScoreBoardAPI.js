@@ -16,6 +16,13 @@ export default {
           "",
           config
         ),
+      finishedUserScoreBoard: (user_id, question_pool_id) =>
+        axios.post(
+          baseUrl +
+            `/api/scoreboard/finalscoreboard/${user_id}/${question_pool_id}`,
+          "",
+          config
+        ),
       getCurrentUserScoreBoard: (user_id, question_pool_id) =>
         axios.post(
           baseUrl + `/api/scoreboard/${user_id}/${question_pool_id}`,

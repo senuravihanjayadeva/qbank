@@ -8,7 +8,7 @@ export default class Footer extends Component {
         <div class="container-fluid">
           <div class="card cardFooter">
             <div class="heading text-center">
-              <div class="head1">Just Scratching the Surface</div>
+              <div class="head1">QUIZ MASTER</div>
               <p class="bdr"></p>
             </div>
             <div class="card-body">
@@ -20,7 +20,7 @@ export default class Footer extends Component {
                     <div class="card-title"> RECHARGE REPEAT CUSTOMER </div>
                     <p>
                       <small>
-                        Save customers' cards for future phone orders
+                        Lorem Ipsum is simply dummy text of the printing
                       </small>
                     </p>
                     <div class="learn-more">
@@ -44,7 +44,7 @@ export default class Footer extends Component {
                     <div class="card-title"> ACCEPT ELECTRONIC CHECK </div>
                     <p>
                       <small>
-                        Save customers' cards for future phone orders
+                        Lorem Ipsum is simply dummy text of the printing
                       </small>
                     </p>
                     <div class="learn-more">
@@ -68,7 +68,7 @@ export default class Footer extends Component {
                     <div class="card-title"> STREAMLINE PHONE PAYMENTS </div>
                     <p>
                       <small>
-                        Save customers' cards for future phone orders
+                        Lorem Ipsum is simply dummy text of the printing
                       </small>
                     </p>
                     <div class="learn-more">
@@ -96,7 +96,7 @@ export default class Footer extends Component {
                     </div>
                     <p>
                       <small>
-                        Save customers' cards for future phone orders
+                        Lorem Ipsum is simply dummy text of the printing
                       </small>
                     </p>
                     <div class="learn-more">

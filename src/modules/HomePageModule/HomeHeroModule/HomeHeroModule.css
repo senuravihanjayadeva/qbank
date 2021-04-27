@@ -12,60 +12,13 @@ body {
 
 @media (min-width: 300px) {
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 400px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-  }
-
-  .row {
-    position: relative;
-  }
-
-  .overlay {
-    height: 404px;
-  }
-
-  .header-title {
-    font-weight: bolder;
-    font-size: 70px;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .header-content {
-    font-weight: 400;
-    font-size: 22px;
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    text-align: justify;
   }
 }
 
 @media (min-width: 576px) {
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 600px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 70%);
-  }
-
-  .row {
-    position: relative;
-  }
-
-  .overlay {
-    height: 604px;
   }
 
   .header-title {
@@ -90,22 +43,7 @@ body {
 
 @media (min-width: 600px) {
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 600px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 40%, 0 50%);
-  }
-
-  .row {
-    position: relative;
-  }
-
-  .overlay {
-    height: 304px;
   }
 
   .header-title {
@@ -130,20 +68,8 @@ body {
 }
 
 @media (min-width: 768px) {
-  /* Device screen larger than 768px */
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 600px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 42%, 0 55%);
-  }
-
-  .overlay {
-    height: 404px;
   }
 
   .header-title {
@@ -169,18 +95,7 @@ body {
 @media (min-width: 992px) {
   /* Device screen larger than 992px */
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 600px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 42%, 0 55%);
-  }
-
-  .overlay {
-    height: 404px;
   }
 
   .header-title {
@@ -206,18 +121,7 @@ body {
 @media (min-width: 1200px) {
   /* Device screen larger than 1200px */
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 500px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 95%);
-  }
-
-  .overlay {
-    height: 500px;
   }
 
   .header-title {
@@ -245,18 +149,7 @@ body {
 @media (min-width: 1400px) {
   /* Device screen larger than 1400px */
   .hero-section-bg {
-    position: absolute;
-    overflow: auto;
-    width: 100vw;
-    height: 580px;
-    left: 0px;
-    top: 0px;
     background: var(--light-background-color);
-    clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 95%);
-  }
-
-  .overlay {
-    height: 580px;
   }
 
   .header-title {
