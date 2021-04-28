@@ -26,6 +26,7 @@ class TeacherQuestionPoolScoreBoard extends Component {
         <TeacherHeroScoreboardSection />
         <div className="container">
           <h3>{this.state.quizName} | Student Score Boards</h3>
+          <hr />
           <div class="accordion accordion-flush" id="accordionFlushExample">
             {this.props.userScoreBoardsListByQuiz.length === 0 ? (
               <div>

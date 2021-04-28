@@ -56,21 +56,19 @@ class TeacherAnswerForQuestion extends Component {
           <form>
             <div class="form-group">
               <label class="mb-2">
-                {this.props.question.options.forEach((option) => {
-                  if (
-                    this.props.question.answer &&
-                    this.props.question.answer.optionID === option.id
-                  ) {
-                    return (
-                      <h6>
-                        Answer :-
-                        <span style={{ color: "rgb(0, 114, 180)" }}>
-                          {" "}
-                          {option.optionText}
-                        </span>
-                      </h6>
-                    );
-                  }
+                {this.props.question.options.map((option) => {
+                  return this.props.question.answer &&
+                    this.props.question.answer.optionID === option.id ? (
+                    <h6>
+                      Answer :-
+                      <span style={{ color: "rgb(0, 114, 180)" }}>
+                        {" "}
+                        {option.optionText}
+                      </span>
+                    </h6>
+                  ) : (
+                    ""
+                  );
                 })}
               </label>
               <select

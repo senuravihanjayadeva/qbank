@@ -70,6 +70,12 @@ class StudentQuizSection extends Component {
   }
 
   finishAttempt() {
+    this.setState({
+      finishStatus: true,
+      finishStatusAlert: "alert alert-warning",
+      finishStatusMessage: "Please Wait..",
+    });
+
     this.props.finishQuiz(
       this.props.user.id,
       this.state.AttemptQuizObjID,
@@ -78,14 +84,12 @@ class StudentQuizSection extends Component {
         localStorage.removeItem("AttemptQuizObjisAttempting");
         localStorage.removeItem("AttemptQuizObjName");
         this.setState({
-          finishStatus: true,
           finishStatusAlert: "alert alert-success",
-          finishStatusMessage: "",
+          finishStatusMessage: "Finished Attempt Successfully",
         });
       },
       () => {
         this.setState({
-          finishStatus: true,
           finishStatusAlert: "alert alert-danger",
           finishStatusMessage: "Something went wrong",
         });
