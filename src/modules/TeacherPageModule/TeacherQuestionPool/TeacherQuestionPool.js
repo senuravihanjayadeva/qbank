@@ -71,62 +71,72 @@ class TeacherQuestionPool extends Component {
               <h3>YOUR QUESTION POOLS</h3>
               <hr />
               <div className="row">
-                {this.props.teacherQuestionPoolList.map((questionPool) => {
-                  return (
-                    <div className="col-lg-4 p-2 mt-2">
-                      <div class="card TeacherQuestionPools">
-                        <div class="card-body">
-                          <h5 class="card-title">
-                            {questionPool.questionPoolName}
-                            {"  "}
-                            <a
-                              href={`/teacher/scoreboard/quiz/${questionPool.questionPoolName}/${questionPool.id}`}
-                            >
-                              <button className="btn btn-sm btn-warning">
-                                <VisibilityIcon /> Score Board
-                              </button>
-                            </a>
-                          </h5>
-                          <p class="card-text">
-                            Enrollment Key : {questionPool.enrollmentKey}
-                          </p>
-                          <div className="row rowCards">
-                            <div className="col-lg-4 col-md-4 col-sm-4 colCards">
-                              <button className="btn btn-success">
-                                <Link
-                                  to={`/qpool/${questionPool.questionPoolName}/${questionPool.id}`}
+                {this.props.teacherQuestionPoolList.length === 0 ? (
+                  <div class="alert alert-danger" role="alert">
+                    No quizzes available
+                  </div>
+                ) : (
+                  this.props.teacherQuestionPoolList.map((questionPool) => {
+                    return (
+                      <div className="col-lg-4 p-2 mt-2">
+                        <div class="card TeacherQuestionPools">
+                          <div class="card-body">
+                            <h5 class="card-title">
+                              {questionPool.questionPoolName}
+                              {"  "}
+                              <a
+                                href={`/teacher/scoreboard/quiz/${questionPool.questionPoolName}/${questionPool.id}`}
+                              >
+                                <button className="btn btn-sm btn-warning">
+                                  <VisibilityIcon /> Score Board
+                                </button>
+                              </a>
+                            </h5>
+                            <p class="card-text">
+                              Enrollment Key : {questionPool.enrollmentKey}
+                            </p>
+                            <div className="row rowCards">
+                              <div className="col-lg-4 col-md-4 col-sm-4 colCards">
+                                <button className="btn btn-success">
+                                  <Link
+                                    to={`/qpool/${questionPool.questionPoolName}/${questionPool.id}`}
+                                  >
+                                    <QueueIcon className="btnIcons" />
+                                  </Link>
+                                </button>
+                              </div>
+                              <div className="col-lg-4 col-md-4 col-sm-4 colCards">
+                                <button
+                                  className="btn btn-warning"
+                                  onClick={() => {
+                                    this.toggle();
+                                    this.setState({
+                                      poolID: questionPool.id,
+                                    });
+                                  }}
                                 >
-                                  <QueueIcon className="btnIcons" />
-                                </Link>
-                              </button>
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-sm-4 colCards">
-                              <button
-                                className="btn btn-warning"
-                                onClick={() => {
-                                  this.toggle();
-                                  this.setState({ poolID: questionPool.id });
-                                }}
-                              >
-                                <EditIcon />
-                              </button>
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-sm-4 colCards">
-                              <button
-                                className="btn btn-danger"
-                                onClick={() => {
-                                  this.deleteQuestionPoolByID(questionPool.id);
-                                }}
-                              >
-                                <DeleteIcon />
-                              </button>
+                                  <EditIcon />
+                                </button>
+                              </div>
+                              <div className="col-lg-4 col-md-4 col-sm-4 colCards">
+                                <button
+                                  className="btn btn-danger"
+                                  onClick={() => {
+                                    this.deleteQuestionPoolByID(
+                                      questionPool.id
+                                    );
+                                  }}
+                                >
+                                  <DeleteIcon />
+                                </button>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
