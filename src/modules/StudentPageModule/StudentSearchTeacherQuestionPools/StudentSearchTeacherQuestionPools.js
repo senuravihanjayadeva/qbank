@@ -27,7 +27,7 @@ class StudentSearchTeacherQuestionPools extends Component {
       searchedQuestionPool: [],
     });
 
-    this.props.allTeachersQuestionPools.map((teacher) => {
+    this.props.allTeachersQuestionPools.forEach((teacher) => {
       let checkUsername = teacher.username.localeCompare(username);
       if (checkUsername === 0) {
         if (teacher.questionPools.length > 0) {

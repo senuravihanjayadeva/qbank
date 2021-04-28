@@ -7,9 +7,16 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const scoreboardAPI = {
   scoreboard() {
     return {
+      getUserScoreboardListForGivenQuiz: (question_pool_id) =>
+        axios.post(
+          baseUrl +
+            `/api/scoreboard/finalscoreboardsbyquiz/${question_pool_id}`,
+          "",
+          config
+        ),
       finishQuiz: (user_id, question_pool_id) =>
         axios.put(
           baseUrl + `/api/scoreboard/finishquiz/${user_id}/${question_pool_id}`,
@@ -32,3 +39,4 @@ export default {
     };
   },
 };
+export default scoreboardAPI;

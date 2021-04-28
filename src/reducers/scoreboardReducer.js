@@ -4,10 +4,16 @@ const initialState = {
   isFinished: "",
   currentUserScoreBoard: "",
   finishedUserScoreBoard: "",
+  userScoreBoardsListByQuiz: [],
 };
 
 export const scoreboardReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ACTION_TYPES.FETCHT_USER_SCOREBOARDS_BY_QUIZ:
+      return {
+        ...state,
+        userScoreBoardsListByQuiz: [...action.payload],
+      };
     case ACTION_TYPES.FINISH_QUIZ:
       return {
         ...state,

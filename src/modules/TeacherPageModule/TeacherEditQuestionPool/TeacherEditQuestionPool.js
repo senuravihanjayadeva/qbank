@@ -13,15 +13,15 @@ const TeacherEditQuestionPool = ({ ...props }) => {
   const [updateStatusMessage, setupdateStatusMessage] = useState("");
 
   useEffect(() => {
-    if (props.dataPoolId != 0) {
+    if (props.dataPoolId !== 0) {
       const updateToBeQuestionPool = props.teacherQuestionPoolList.find(
-        (x) => x.id == props.dataPoolId
+        (x) => x.id === props.dataPoolId
       );
       setid(updateToBeQuestionPool.id);
       setquestionPoolName(updateToBeQuestionPool.questionPoolName);
       setenrollmentKey(updateToBeQuestionPool.enrollmentKey);
     }
-  }, []);
+  }, [props.dataPoolId, props.teacherQuestionPoolList]);
 
   function onEditQuestionPool(e) {
     e.preventDefault();

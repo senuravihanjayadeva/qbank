@@ -7,7 +7,7 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const checkanswersAPI = {
   checkanswers() {
     return {
       checkAnswer: (checkAnswer) =>
@@ -28,3 +28,5 @@ export default {
     };
   },
 };
+
+export default checkanswersAPI;

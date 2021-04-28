@@ -4,6 +4,27 @@ export const ACTION_TYPES = {
   FINISH_QUIZ: "FINISH_QUIZ",
   FINISHED_USER_SCOREBOARD: "FINISHED_USER_SCOREBOARD",
   CURRENT_USER_SCOREBOARD: "CURRENT_USER_SCOREBOARD",
+  FETCHT_USER_SCOREBOARDS_BY_QUIZ: "FETCHT_USER_SCOREBOARDS_BY_QUIZ",
+};
+
+export const getUserScoreboardListForGivenQuiz = (
+  questionpoolid,
+  OnSuccess,
+  OnFailure
+) => (dispatch) => {
+  api
+    .scoreboard()
+    .getUserScoreboardListForGivenQuiz(questionpoolid)
+    .then((response) => {
+      dispatch({
+        type: ACTION_TYPES.FETCHT_USER_SCOREBOARDS_BY_QUIZ,
+        payload: response.data,
+      });
+      OnSuccess();
+    })
+    .catch(() => {
+      OnFailure();
+    });
 };
 
 export const finishedUserScoreBoard = (

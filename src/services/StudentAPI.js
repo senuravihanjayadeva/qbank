@@ -7,7 +7,7 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const studentsAPI = {
   students() {
     return {
       fetchAll: () => axios.get(baseUrl, config),
@@ -20,3 +20,4 @@ export default {
     };
   },
 };
+export default studentsAPI;

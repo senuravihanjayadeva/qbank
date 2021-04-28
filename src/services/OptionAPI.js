@@ -7,11 +7,11 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const optionsAPI = {
   options() {
     return {
       fetchAll: () => axios.get(baseUrl + "/api/options", config),
-      fetchById: (id) => axios.get(baseUrl + "/api/options" + "/" + id, config),
+      fetchById: (id) => axios.get(baseUrl + "/api/options/" + id, config),
       create: (newOption) =>
         axios.post(baseUrl + "/api/options", newOption, config),
       update: (id, updatedOption) =>
@@ -20,3 +20,5 @@ export default {
     };
   },
 };
+
+export default optionsAPI;

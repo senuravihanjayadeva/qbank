@@ -8,6 +8,7 @@ import TeacherEditQuestionPool from "../TeacherEditQuestionPool/TeacherEditQuest
 import QueueIcon from "@material-ui/icons/Queue";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 
 class TeacherQuestionPool extends Component {
@@ -77,6 +78,14 @@ class TeacherQuestionPool extends Component {
                         <div class="card-body">
                           <h5 class="card-title">
                             {questionPool.questionPoolName}
+                            {"  "}
+                            <a
+                              href={`/teacher/scoreboard/quiz/${questionPool.questionPoolName}/${questionPool.id}`}
+                            >
+                              <button className="btn btn-sm btn-warning">
+                                <VisibilityIcon /> Score Board
+                              </button>
+                            </a>
                           </h5>
                           <p class="card-text">
                             Enrollment Key : {questionPool.enrollmentKey}

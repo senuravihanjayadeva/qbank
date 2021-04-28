@@ -7,6 +7,7 @@ import TeacherQuestions from "../modules/TeacherPageModule/TeacherQuestions/Teac
 import Footer from "../components/common/Footer/Footer";
 import StudentMainPage from "../pages/StudentMainPage";
 import StudentQuizSection from "../modules/StudentPageModule/StudentQuizSection/StudentQuizSection";
+import TeacherQuestionPoolScoreBoard from "../modules/TeacherPageModule/TeacherQuestionPoolScoreBoard/TeacherQuestionPoolScoreBoard";
 
 export default function RoutesComponent() {
   return (
@@ -25,6 +26,11 @@ export default function RoutesComponent() {
           path="/student/quiz/:quizname/:quizid"
           exact
           component={StudentQuizSection}
+        />
+        <Route
+          path="/teacher/scoreboard/quiz/:quizname/:quizid"
+          exact
+          component={TeacherQuestionPoolScoreBoard}
         />
       </Switch>
       <Footer />

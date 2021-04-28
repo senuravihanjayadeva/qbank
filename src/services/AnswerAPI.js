@@ -7,7 +7,7 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const answersAPI = {
   answers() {
     return {
       create: (newAnswer) =>
@@ -18,3 +18,5 @@ export default {
     };
   },
 };
+
+export default answersAPI;

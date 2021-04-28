@@ -7,13 +7,12 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const questionsAPI = {
   questions() {
     return {
       fetchAll: () => axios.get(baseUrl + "/api/questions", config),
       fetchAllByTeacher: () => axios.get(baseUrl + "/api/questions", config),
-      fetchById: (id) =>
-        axios.get(baseUrl + "/api/questions" + "/" + id, config),
+      fetchById: (id) => axios.get(baseUrl + "/api/questions/" + id, config),
       create: (newQuestion) =>
         axios.post(baseUrl + "/api/questions", newQuestion, config),
       update: (updateQuestion) =>
@@ -22,3 +21,4 @@ export default {
     };
   },
 };
+export default questionsAPI;

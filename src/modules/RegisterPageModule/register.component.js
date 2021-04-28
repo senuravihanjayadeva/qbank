@@ -18,6 +18,10 @@ function RegisterComponent({ ...props }) {
   function onRegisterStudent(e) {
     e.preventDefault();
 
+    setregisterStatus(true);
+    setregisterStatusAlert("alert alert-warning");
+    setregisterStatusMessage("Please Wait...");
+
     const role = [userRole];
 
     const newStudent = {
@@ -30,12 +34,10 @@ function RegisterComponent({ ...props }) {
     props.registerstudent(
       newStudent,
       () => {
-        setregisterStatus(true);
         setregisterStatusAlert("alert alert-success");
         setregisterStatusMessage("Account created successfully");
       },
       () => {
-        setregisterStatus(true);
         setregisterStatusAlert("alert alert-danger");
         setregisterStatusMessage(
           "Something went wrong. Please try again with different username"

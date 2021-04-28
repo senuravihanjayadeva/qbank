@@ -7,7 +7,7 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const teachersAPI = {
   teachers() {
     return {
       fetchAllQuestionPoolsByUserName: () =>
@@ -15,3 +15,4 @@ export default {
     };
   },
 };
+export default teachersAPI;

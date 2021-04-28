@@ -4,9 +4,6 @@ import * as answeractions from "../../../actions/CheckAnswerActions";
 import * as scoreboardactions from "../../../actions/ScoreBoardActions";
 
 class StudentScoreBoard extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.finishedUserScoreBoard(
       this.props.user.id,
@@ -30,6 +27,7 @@ class StudentScoreBoard extends Component {
                 <table class="table">
                   <thead class="thead-dark">
                     <tr>
+                      <th scope="col">No</th>
                       <th scope="col">Question</th>
                       <th scope="col">Score</th>
                     </tr>
@@ -37,11 +35,28 @@ class StudentScoreBoard extends Component {
                   <tbody>
                     {this.props.finishedScoreBoard &&
                       this.props.finishedScoreBoard.userScoreRecordList.map(
-                        (questionScoreRecord) => {
+                        (questionScoreRecord, index) => {
+                          let tableRowColor = "#03ab00";
+                          if (questionScoreRecord.score === 0) {
+                            tableRowColor = "#d1000a";
+                          }
                           return (
-                            <tr>
+                            <tr
+                              style={{
+                                backgroundColor: "#f0f0f0",
+                              }}
+                            >
+                              <td>{++index}</td>
                               <td>{questionScoreRecord.questionName}</td>
-                              <td> {questionScoreRecord.score}</td>
+                              <td
+                                style={{
+                                  backgroundColor: tableRowColor,
+                                  color: "#fff",
+                                }}
+                              >
+                                {" "}
+                                {questionScoreRecord.score}
+                              </td>
                             </tr>
                           );
                         }

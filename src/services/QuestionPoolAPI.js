@@ -7,7 +7,7 @@ const config = {
   headers: authHeader(),
 };
 
-export default {
+const questionpoolsAPI = {
   questionpools() {
     return {
       fetchAll: () => axios.get(baseUrl + "/api/questionpools", config),
@@ -24,3 +24,4 @@ export default {
     };
   },
 };
+export default questionpoolsAPI;

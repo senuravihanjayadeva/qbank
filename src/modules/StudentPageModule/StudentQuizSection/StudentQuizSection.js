@@ -170,9 +170,23 @@ class StudentQuizSection extends Component {
                 VIEW RESULT
               </button>
             ) : (
-              <button className="btn btn-primary" onClick={this.finishAttempt}>
-                Finish Attempt
-              </button>
+              <div>
+                <button
+                  className="btn btn-primary"
+                  onClick={this.finishAttempt}
+                >
+                  Finish Attempt
+                </button>
+                <div className="mt-2">
+                  {this.state.finishStatus ? (
+                    <div class={this.state.finishStatusAlert} role="alert">
+                      {this.state.finishStatusMessage}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
             )}
 
             {this.props.currentUserScoreBoard.finished ? (

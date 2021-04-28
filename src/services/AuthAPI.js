@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
-export default {
+const authApi = {
   auth() {
     return {
       register: (newUser) => axios.post(baseUrl + "/api/auth/signup", newUser),
@@ -10,3 +10,4 @@ export default {
     };
   },
 };
+export default authApi;

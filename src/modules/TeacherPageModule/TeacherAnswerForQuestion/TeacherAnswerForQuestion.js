@@ -56,10 +56,10 @@ class TeacherAnswerForQuestion extends Component {
           <form>
             <div class="form-group">
               <label class="mb-2">
-                {this.props.question.options.map((option) => {
+                {this.props.question.options.forEach((option) => {
                   if (
                     this.props.question.answer &&
-                    this.props.question.answer.optionID == option.id
+                    this.props.question.answer.optionID === option.id
                   ) {
                     return (
                       <h6>
